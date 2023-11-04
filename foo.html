@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Image Display</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #tabs {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        #tabs button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+        }
+
+        #tabs button:hover {
+            background-color: #555;
+        }
+
+        #content {
+            position: relative;
+            height: calc(100vh - 60px); /* Adjust for the tab height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #image-container {
+            text-align: center;
+        }
+
+        #image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="tabs">
+        <button id="tab1" onclick="showImage('image1')">Tab 1</button>
+        <button id="tab2" onclick="showImage('image2')">Tab 2</button>
+        <button id="tab3" onclick="showImage('image3')">Tab 3</button>
+    </div>
+
+    <div id="content">
+        <div id="image-container">
+            <img id="image1" src="image1.jpg" alt="Image 1" style="display: none;">
+            <img id="image2" src="image2.jpg" alt="Image 2" style="display: none;">
+            <img id="image3" src="image3.jpg" alt="Image 3" style="display: none;">
+        </div>
+    </div>
+
+    <script>
+        function showImage(imageId) {
+            // Hide all images
+            document.getElementById('image1').style.display = 'none';
+            document.getElementById('image2').style.display = 'none';
+            document.getElementById('image3').style.display = 'none';
+
+            // Show the selected image
+            document.getElementById(imageId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
