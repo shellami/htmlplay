@@ -2,23 +2,39 @@
 <html>
 <head>
     <style>
-        .image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        body {
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 600px 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                ". small-image ."
+                ". large-image .";
         }
-        .small-image, .large-image {
+
+        img {
+            max-width: 100%;
+            height: auto;
             display: block;
         }
-        .small-image {
-            align-self: flex-start;
+
+        #small-image {
+            grid-area: small-image;
+            text-align: left;
+        }
+
+        #large-image {
+            grid-area: large-image;
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="small-image.png" alt="Small Image" class="small-image">
-        <img src="large-image.jpg" alt="Large Image" class="large-image">
+    <div id="small-image">
+        <img src="small-image.png" alt="Small Image">
+    </div>
+    <div id="large-image">
+        <img src="large-image.jpg" alt="Large Image">
     </div>
 </body>
 </html>
